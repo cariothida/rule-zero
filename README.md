@@ -2,9 +2,23 @@
 
 **A pre-action discipline for LLM coding agents — observe ground truth before forming hypotheses. Prevents multi-day debugging sessions on wrong systems.**
 
-Copy this file into your agent's session-start instructions to prevent the most common failure mode of agentic LLM work — theorizing about a problem before checking ground truth, then wasting hours iterating on hypotheses that don't match reality.
+## What is this, in plain language?
 
-This document is intentionally agent-neutral. It works with Claude Code, OpenAI Codex, Gemini CLI, Cursor, Aider, Continue, or any other LLM agent that reads a configuration file at session start.
+LLM coding agents (Claude, ChatGPT, Cursor, Gemini, Aider, and others) have a common failure pattern: when something is broken, they jump to "I think the problem is X" and start modifying things — without first checking what is actually happening. They edit code, change configs, install packages, all based on a guess. The guess turns out wrong. They form a new guess. They modify more things. Hours or days go by, and the entire debugging session has been spent chasing the wrong system.
+
+RULE ZERO is a one-page document you paste into your agent's instructions. It forces the agent to do one thing differently: **run a quick reality-check command first, then decide what is wrong.** A single line like "what does this URL actually return?" or "is this file actually empty?" — before any "fix" action.
+
+This single discipline turns multi-day debugging sessions into minutes. It fixes the biggest productivity-killing bug in LLM coding agents today.
+
+**Free. Public domain (CC0). Works with any LLM agent that reads a configuration file at session start.**
+
+## How to use
+
+1. Copy this entire document into your agent's session-start instructions file (see [Where to install](#where-to-install) for the path your agent uses).
+2. Optional but strongly recommended: install the hooks (see [Event-driven enforcement](#event-driven-enforcement-strongly-recommended)) so the discipline is enforced automatically, not just read once.
+3. That is it. The next time the agent encounters a problem, it will run probes before forming theories.
+
+The document is intentionally agent-neutral. The same content works in Claude Code, OpenAI Codex, Gemini CLI, Cursor, Aider, Continue, or any other coding agent that reads a configuration file at session start.
 
 ## The core idea
 
