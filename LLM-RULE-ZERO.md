@@ -1,6 +1,7 @@
 # RULE ZERO for LLM coding agents
 
-**A pre-action discipline for LLM coding agents — observe ground truth before forming hypotheses. Prevents multi-day debugging sessions on wrong systems.**
+**A new principle that dramatically reduces LLM coding mistakes — forces models to check actual code, file, and system state before forming any     
+  hypothesis. Stops the speculation-driven bugs that waste hours of debugging.**
 
 ## What is this, in plain language?
 
